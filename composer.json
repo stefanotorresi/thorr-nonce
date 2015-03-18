@@ -1,5 +1,6 @@
 {
     "name": "stefanotorresi/thorr-nonce",
+    "description": "A simple library providing a service class to create and consume nonces.",
     "type" : "library",
     "license": "MIT",
     "authors": [

@@ -30,15 +30,14 @@ class Nonce extends AbstractEntity
     protected $namespace;
 
     /**
-     * @param DateTime            $expirationDate
-     * @param string              $namespace
+     * @param DateTime $expirationDate
+     * @param string   $namespace
      */
     public function __construct(DateTime $expirationDate = null, $namespace = null)
     {
         $this->setExpirationDate($expirationDate);
         $this->setNamespace($namespace);
     }
-
 
     /**
      * @param DateTime|null $expirationDate

@@ -42,7 +42,7 @@ class NonceService implements NonceServiceInterface
     public function createNonce(NonceOwnerInterface $owner, DateTime $expirationDate = null, $namespace = null)
     {
         if (! $expirationDate) {
-            $interval = new DateInterval($this->moduleOptions->getDefaultNonceExpirationInterval());
+            $interval       = new DateInterval($this->moduleOptions->getDefaultNonceExpirationInterval());
             $expirationDate = (new DateTime())->add($interval);
         }
 
@@ -62,13 +62,13 @@ class NonceService implements NonceServiceInterface
         $nonce = $uuidOrNonce instanceof Nonce ? $uuidOrNonce : $this->nonceMapper->find($uuidOrNonce, $namespace);
 
         if (! $nonce) {
-            throw new Exception\NonceNotFoundException;
+            throw new Exception\NonceNotFoundException();
         }
 
         $now = new DateTime();
 
         if ($nonce->getExpirationDate() && $nonce->getExpirationDate() <= $now) {
-            throw new Exception\NonceHasExpiredException;
+            throw new Exception\NonceHasExpiredException();
         }
 
         $nonce->setExpirationDate($now);

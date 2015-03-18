@@ -35,5 +35,4 @@ class DoctrineMapperAdapter extends DoctrineAdapter implements NonceMapperInterf
             'namespace' => $namespace,
         ]);
     }
-
 }

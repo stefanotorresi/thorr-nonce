@@ -9,8 +9,8 @@ namespace Thorr\Nonce\Test\Service;
 
 use DateInterval;
 use DateTime;
-use PHPUnit_Framework_TestCase as TestCase;
 use PHPUnit_Framework_MockObject_MockObject as MockObject;
+use PHPUnit_Framework_TestCase as TestCase;
 use Rhumsaa\Uuid\Uuid;
 use Thorr\Nonce\DataMapper\NonceMapperInterface;
 use Thorr\Nonce\Entity\Nonce;
@@ -58,7 +58,6 @@ class NonceServiceTest extends TestCase
         $this->assertSame($expirationDate, $nonce->getExpirationDate());
         $this->assertSame($owner, $nonce->getOwner());
     }
-
 
     public function testCreateWithDefaultExpirationDate()
     {
@@ -124,9 +123,9 @@ class NonceServiceTest extends TestCase
 
     public function testConsumeNonceWithParamsWillInvokeTheMapperFindMethodWithSameParams()
     {
-        $uuid = Uuid::uuid4();
+        $uuid      = Uuid::uuid4();
         $namespace = 'foobar';
-        $nonce = new Nonce();
+        $nonce     = new Nonce();
 
         $this->nonceMapper
             ->expects($this->atLeastOnce())

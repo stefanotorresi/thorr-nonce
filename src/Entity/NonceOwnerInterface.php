@@ -9,5 +9,4 @@ namespace Thorr\Nonce\Entity;
 
 interface NonceOwnerInterface
 {
-
 }

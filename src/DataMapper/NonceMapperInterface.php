@@ -19,7 +19,7 @@ interface NonceMapperInterface extends
      * @param string|Uuid $uuid
      * @param string      $namespace
      *
-     * @return Nonce
+     * @return Nonce|null
      */
     public function find($uuid, $namespace);
 }

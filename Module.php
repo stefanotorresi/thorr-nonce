@@ -45,9 +45,9 @@ class Module implements Feature\ConfigProviderInterface, Feature\ServiceProvider
                     'orm_default' => [
                         'drivers' => [
                             'Thorr\Nonce\Entity' => 'thorr-nonce-xml-driver',
-                        ]
-                    ]
-                ]
+                        ],
+                    ],
+                ],
             ],
         ];
     }
@@ -71,7 +71,7 @@ class Module implements Feature\ConfigProviderInterface, Feature\ServiceProvider
 
                     return new Options\ModuleOptions($config);
                 },
-            ]
+            ],
         ];
     }
 }

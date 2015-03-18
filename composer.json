@@ -1,0 +1,38 @@
+{
+    "name": "stefanotorresi/thorr-nonce",
+    "type" : "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stefano Torresi",
+            "email": "stefano@torresi.io"
+        }
+    ],
+    "require": {
+        "php": "~5.5",
+        "stefanotorresi/thorr-persistence": "1.*@beta"
+    },
+    "suggest": {
+        "stefanotorresi/thorr-persistence-doctrine": "Required to use the Doctrine adapter"
+    },
+    "require-dev": {
+        "stefanotorresi/thorr-persistence-doctrine": "1.*@beta",
+        "zendframework/zend-modulemanager": "~2.3",
+        "zendframework/zend-servicemanager": "~2.3",
+        "fabpot/php-cs-fixer": "~1.5"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.x-dev"
+        }
+    },
+    "autoload" : {
+        "classmap": [
+            "Module.php"
+        ],
+        "psr-4": {
+            "Thorr\\Nonce\\": "src/",
+            "Thorr\\Nonce\\Test\\": "tests/"
+        }
+    }
+}

@@ -8,6 +8,7 @@
 namespace Thorr\Nonce\Entity;
 
 use DateTime;
+use Rhumsaa\Uuid\Uuid;
 use Thorr\Persistence\Entity\AbstractEntity;
 
 class Nonce extends AbstractEntity
@@ -30,11 +31,15 @@ class Nonce extends AbstractEntity
     protected $namespace;
 
     /**
+     * {@inheritdoc}
+     *
      * @param DateTime $expirationDate
      * @param string   $namespace
      */
-    public function __construct(DateTime $expirationDate = null, $namespace = null)
+    public function __construct(Uuid $uuid = null, DateTime $expirationDate = null, $namespace = null)
     {
+        parent::__construct($uuid);
+
         $this->setExpirationDate($expirationDate);
         $this->setNamespace($namespace);
     }

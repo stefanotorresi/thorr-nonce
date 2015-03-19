@@ -46,7 +46,7 @@ class NonceService implements NonceServiceInterface
             $expirationDate = (new DateTime())->add($interval);
         }
 
-        $nonce = new Nonce($expirationDate, $namespace);
+        $nonce = new Nonce(null, $expirationDate, $namespace);
         $nonce->setOwner($owner);
 
         $this->nonceMapper->save($nonce);

@@ -99,7 +99,7 @@ class NonceServiceTest extends TestCase
     public function testConsumeExpiredNonceWillThrowException()
     {
         $expirationDate = (new DateTime())->sub(new DateInterval('PT1S'));
-        $nonce          = new Nonce($expirationDate);
+        $nonce          = new Nonce(null, $expirationDate);
 
         $this->setExpectedException(NonceHasExpiredException::class);
 

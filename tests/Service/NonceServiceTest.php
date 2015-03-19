@@ -96,13 +96,6 @@ class NonceServiceTest extends TestCase
         $this->assertTrue($now >= $nonce->getExpirationDate());
     }
 
-    public function testConsumeNonExistentNonceWillThrowException()
-    {
-        $this->setExpectedException(NonceNotFoundException::class);
-
-        $this->nonceService->consumeNonce('foobar');
-    }
-
     public function testConsumeExpiredNonceWillThrowException()
     {
         $expirationDate = (new DateTime())->sub(new DateInterval('PT1S'));
@@ -121,7 +114,14 @@ class NonceServiceTest extends TestCase
         $this->assertSame('foobar', $nonce->getNamespace());
     }
 
-    public function testConsumeNonceWithParamsWillInvokeTheMapperFindMethodWithSameParams()
+    public function testFindNonExistentNonceWillThrowException()
+    {
+        $this->setExpectedException(NonceNotFoundException::class);
+
+        $this->nonceService->findNonce('foobar');
+    }
+
+    public function testFindNonceWithParamsWillInvokeTheMapperFindMethodWithSameParams()
     {
         $uuid      = Uuid::uuid4();
         $namespace = 'foobar';
@@ -134,6 +134,6 @@ class NonceServiceTest extends TestCase
             ->willReturn($nonce)
         ;
 
-        $this->assertTrue($this->nonceService->consumeNonce($uuid, $namespace));
+        $this->assertSame($nonce, $this->nonceService->findNonce($uuid, $namespace));
     }
 }

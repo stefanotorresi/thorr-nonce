@@ -57,14 +57,22 @@ class NonceService implements NonceServiceInterface
     /**
      * {@inheritdoc}
      */
-    public function consumeNonce($uuidOrNonce, $namespace = null)
+    public function findNonce($uuid, $namespace = null)
     {
-        $nonce = $uuidOrNonce instanceof Nonce ? $uuidOrNonce : $this->nonceMapper->find($uuidOrNonce, $namespace);
+        $nonce = $this->nonceMapper->find($uuid, $namespace);
 
         if (! $nonce) {
             throw new Exception\NonceNotFoundException();
         }
 
+        return $nonce;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function consumeNonce(Nonce $nonce)
+    {
         $now = new DateTime();
 
         if ($nonce->getExpirationDate() && $nonce->getExpirationDate() <= $now) {

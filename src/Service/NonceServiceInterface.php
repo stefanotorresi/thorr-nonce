@@ -26,15 +26,25 @@ interface NonceServiceInterface
     public function createNonce(NonceOwnerInterface $owner, DateTime $expirationDate = null, $namespace = null);
 
     /**
-     * Consumes a nonce. The nonce is deleted upon consumption.
+     * Finds a nonce. Throws exception on failure
      *
-     * @param Nonce|Uuid|string $uuidOrNonce
-     * @param string            $namespace
+     * @param Uuid|string $uuid
+     * @param string      $namespace
      *
      * @throws Exception\NonceNotFoundException
+     *
+     * @return Nonce
+     */
+    public function findNonce($uuid, $namespace = null);
+
+    /**
+     * Consumes a nonce. The nonce is deleted upon consumption.
+     *
+     * @param Nonce $nonce
+     *
      * @throws Exception\NonceHasExpiredException
      *
      * @return bool returns true on success
      */
-    public function consumeNonce($uuidOrNonce, $namespace = null);
+    public function consumeNonce(Nonce $nonce);
 }

@@ -10,7 +10,7 @@
         <field name="namespace" type="string" nullable="true" />
 
         <many-to-one target-entity="Thorr\Nonce\Entity\NonceOwnerInterface" field="owner">
-            <join-column on-delete="CASCADE" on-update="CASCADE" />
+            <join-column name="ownerUuid" referenced-column-name="uuid"  on-delete="CASCADE" on-update="CASCADE" />
         </many-to-one>
 
     </entity>

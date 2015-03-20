@@ -17,7 +17,6 @@ use Thorr\Nonce\Entity\Nonce;
 use Thorr\Nonce\Entity\NonceOwnerInterface;
 use Thorr\Nonce\Options\ModuleOptions;
 use Thorr\Nonce\Service\Exception\NonceHasExpiredException;
-use Thorr\Nonce\Service\Exception\NonceNotFoundException;
 use Thorr\Nonce\Service\NonceService;
 
 class NonceServiceTest extends TestCase

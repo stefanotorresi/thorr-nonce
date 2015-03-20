@@ -136,4 +136,24 @@ class NonceServiceTest extends TestCase
 
         $this->assertSame($nonce, $this->nonceService->findNonce($uuid, $namespace));
     }
+
+    /**
+     * @param Nonce $nonce
+     * @param bool  $result
+     *
+     * @dataProvider isValidProvider
+     */
+    public function testIsValid(Nonce $nonce, $result)
+    {
+        $this->assertSame($result, $this->nonceService->isValid($nonce));
+    }
+
+    public function isValidProvider()
+    {
+        return [
+            [ new Nonce(), true ],
+            [ new Nonce(null, (new DateTime())->sub(new DateInterval('PT1M'))), false ],
+            [ new Nonce(null, (new DateTime())->add(new DateInterval('PT1M'))), true ],
+        ];
+    }
 }

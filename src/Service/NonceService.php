@@ -71,11 +71,25 @@ class NonceService implements NonceServiceInterface
     /**
      * {@inheritdoc}
      */
-    public function consumeNonce(Nonce $nonce)
+    public function isValid(Nonce $nonce)
     {
         $now = new DateTime();
 
         if ($nonce->getExpirationDate() && $nonce->getExpirationDate() <= $now) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function consumeNonce(Nonce $nonce)
+    {
+        $now = new DateTime();
+
+        if (! $this->isValid($nonce)) {
             throw new Exception\NonceHasExpiredException();
         }
 

@@ -38,6 +38,17 @@ interface NonceServiceInterface
     public function findNonce($uuid, $namespace = null);
 
     /**
+     * Validates a nonce, i.e. checks its expiration date
+     *
+     * Null expiration date means nonce is always valid until consumption
+     *
+     * @param Nonce $nonce
+     *
+     * @return bool
+     */
+    public function isValid(Nonce $nonce);
+
+    /**
      * Consumes a nonce. The nonce is deleted upon consumption.
      *
      * @param Nonce $nonce

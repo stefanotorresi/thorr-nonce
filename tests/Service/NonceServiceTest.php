@@ -114,11 +114,9 @@ class NonceServiceTest extends TestCase
         $this->assertSame('foobar', $nonce->getNamespace());
     }
 
-    public function testFindNonExistentNonceWillThrowException()
+    public function testFindNonExistentNonceWillReturnNull()
     {
-        $this->setExpectedException(NonceNotFoundException::class);
-
-        $this->nonceService->findNonce('foobar');
+        $this->assertNull($this->nonceService->findNonce('foobar'));
     }
 
     public function testFindNonceWithParamsWillInvokeTheMapperFindMethodWithSameParams()
@@ -155,5 +153,15 @@ class NonceServiceTest extends TestCase
             [ new Nonce(null, (new DateTime())->sub(new DateInterval('PT1M'))), false ],
             [ new Nonce(null, (new DateTime())->add(new DateInterval('PT1M'))), true ],
         ];
+    }
+
+    public function testCannotConsumeNonceTwice()
+    {
+        $nonce = new Nonce();
+
+        $this->assertTrue($this->nonceService->consumeNonce($nonce));
+
+        $this->setExpectedException(NonceHasExpiredException::class);
+        $this->nonceService->consumeNonce($nonce);
     }
 }

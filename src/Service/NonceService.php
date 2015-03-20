@@ -56,16 +56,12 @@ class NonceService implements NonceServiceInterface
 
     /**
      * {@inheritdoc}
+     *
+     * proxies to the data mapper
      */
     public function findNonce($uuid, $namespace = null)
     {
-        $nonce = $this->nonceMapper->find($uuid, $namespace);
-
-        if (! $nonce) {
-            throw new Exception\NonceNotFoundException();
-        }
-
-        return $nonce;
+        return $this->nonceMapper->find($uuid, $namespace);
     }
 
     /**

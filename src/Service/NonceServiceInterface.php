@@ -26,14 +26,12 @@ interface NonceServiceInterface
     public function createNonce(NonceOwnerInterface $owner, DateTime $expirationDate = null, $namespace = null);
 
     /**
-     * Finds a nonce. Throws exception on failure
+     * Finds a nonce.
      *
      * @param Uuid|string $uuid
      * @param string      $namespace
      *
-     * @throws Exception\NonceNotFoundException
-     *
-     * @return Nonce
+     * @return Nonce|null
      */
     public function findNonce($uuid, $namespace = null);
 

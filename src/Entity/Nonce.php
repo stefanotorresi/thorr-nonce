@@ -8,7 +8,7 @@
 namespace Thorr\Nonce\Entity;
 
 use DateTime;
-use Rhumsaa\Uuid\Uuid;
+use Ramsey\Uuid\Uuid;
 use Thorr\Persistence\Entity\AbstractEntity;
 
 class Nonce extends AbstractEntity

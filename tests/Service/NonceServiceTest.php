@@ -11,7 +11,7 @@ use DateInterval;
 use DateTime;
 use PHPUnit_Framework_MockObject_MockObject as MockObject;
 use PHPUnit_Framework_TestCase as TestCase;
-use Rhumsaa\Uuid\Uuid;
+use Ramsey\Uuid\Uuid;
 use Thorr\Nonce\DataMapper\NonceMapperInterface;
 use Thorr\Nonce\Entity\Nonce;
 use Thorr\Nonce\Entity\NonceOwnerInterface;

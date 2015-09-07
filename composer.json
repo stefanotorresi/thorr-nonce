@@ -9,15 +9,17 @@
             "email": "stefano@torresi.io"
         }
     ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": "~5.5",
-        "stefanotorresi/thorr-persistence": "1.*@beta"
+        "stefanotorresi/thorr-persistence": "^2.0"
     },
     "suggest": {
         "stefanotorresi/thorr-persistence-doctrine": "Required to use the Doctrine adapter"
     },
     "require-dev": {
-        "stefanotorresi/thorr-persistence-doctrine": "1.*@beta",
+        "stefanotorresi/thorr-persistence-doctrine": "^2.0",
         "zendframework/zend-modulemanager": "~2.3",
         "zendframework/zend-servicemanager": "~2.3",
         "fabpot/php-cs-fixer": "~1.5"

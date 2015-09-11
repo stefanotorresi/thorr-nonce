@@ -8,7 +8,7 @@
 namespace Thorr\Nonce\DataMapper;
 
 use InvalidArgumentException;
-use Rhumsaa\Uuid\Uuid;
+use Ramsey\Uuid\Uuid;
 use Thorr\Nonce\Entity\Nonce;
 use Thorr\Persistence\Doctrine\DataMapper\DoctrineAdapter;
 

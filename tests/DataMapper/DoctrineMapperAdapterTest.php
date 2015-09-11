@@ -17,7 +17,7 @@ class DoctrineMapperAdapterTest extends TestCase
     public function testFindInvalidUuidReturnsNull()
     {
         $objectManager = $this->getMock(ObjectManager::class);
-        $adapter = new DoctrineMapperAdapter(Nonce::class, $objectManager);
+        $adapter       = new DoctrineMapperAdapter(Nonce::class, $objectManager);
 
         $this->assertNull($adapter->find('foobar', 'barbaz'));
     }

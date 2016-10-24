@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "~5.5",
+        "php": "^5.6 || ^7.0",
         "stefanotorresi/thorr-persistence": "^2.0"
     },
     "suggest": {
@@ -22,7 +22,8 @@
         "stefanotorresi/thorr-persistence-doctrine": "^2.0",
         "zendframework/zend-modulemanager": "~2.3",
         "zendframework/zend-servicemanager": "~2.3",
-        "fabpot/php-cs-fixer": "~1.5"
+        "fabpot/php-cs-fixer": "~1.5",
+        "phpunit/phpunit": "^4.8"
     },
     "extra": {
         "branch-alias": {
